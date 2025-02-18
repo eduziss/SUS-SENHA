@@ -13,7 +13,7 @@ interface Local {
 }
 
 export function Home() {
-  const [password, setPassword] = useState("");
+  const [, setPassword] = useState("");
   const [department, setDepartment] = useState("");
   const [local, setLocal] = useState<Local[]>([]);
 

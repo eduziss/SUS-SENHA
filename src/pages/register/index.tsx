@@ -6,7 +6,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 export function Register() {
-  const [createUserWithEmailAndPassword, user, loading, error] =
+  const [createUserWithEmailAndPassword, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
   const [name, setName] = useState("");
@@ -108,7 +108,7 @@ export function Register() {
           </button>
         </form>
         {error && (
-          <p className="text-red-500 text-center mt-2">Erro: {error.message}</p>
+          <p className="text-red-500 text-center mt-2">Erro: {error}</p>
         )}
       </div>
     </div>
