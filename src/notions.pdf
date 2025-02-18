@@ -1,0 +1,22 @@
+  async function listUsers() {
+    const usersSnapshot = await getDocs(collection(db, "users"));
+    usersSnapshot.forEach((doc) => {
+      console.log(`ID: ${doc.id}, Data:`, doc.data());
+    });
+  }
+
+
+import { updatePassword } from "firebase/auth";
+
+async function handlePasswordUpdate(newPassword: string) {
+  const user = auth.currentUser;
+  if (user) {
+    try {
+      await updatePassword(user, newPassword); // Atualiza a senha no Firebase Authentication
+      alert("Senha atualizada com sucesso!");
+    } catch (error) {
+      console.error("Erro ao atualizar a senha:", error);
+      alert("Erro ao atualizar a senha.");
+    }
+  }
+}
